@@ -3,10 +3,16 @@ package kiosko;
 import producto.Producto;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class Factura {
 
+    Calendar mes;
     ArrayList<Producto> productos = new ArrayList<Producto>();
+
+    public Factura(){
+
+    }
 
     public void MostrarFactura(){
 
