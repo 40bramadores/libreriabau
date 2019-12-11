@@ -1,9 +1,7 @@
 package Suscripcion;
 
-import org.junit.jupiter.api.DynamicTest;
 import org.junit.jupiter.api.Test;
-import producto.Producto;
-import producto.ProductosPeriodicos;
+import producto.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 

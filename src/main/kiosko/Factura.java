@@ -4,26 +4,43 @@ import producto.Producto;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 public class Factura {
 
-    Calendar mes;
-    ArrayList<Producto> productos = new ArrayList<Producto>();
+    private Date mes;
+    private ArrayList<Compra> productos = new ArrayList<Compra>();
+    private double montoTotal;
 
     public Factura(){
+        this.mes = new Date();
+        this.montoTotal = 0;
+
 
     }
-
     public void MostrarFactura(){
-
         // Devuelve la lista de producto
-        for ( Producto p : productos){
-            System.out.println(p.getNombre());
+        for ( Compra p : productos){
+            System.out.println(p.getProducto());
             System.out.println(p.devolverPrecio());
         }
     }
 
-    public double calcular(){
-        return 0;
+    public double getMontoTotal() {
+        return montoTotal;
     }
+
+
+    public void calcularTotal(boolean descuento) {
+        for (Compra p : productos){
+            this.montoTotal += p.devolverPrecio();
+        }
+
+        if (descuento){
+
+        }
+
+    }
+
+
 }

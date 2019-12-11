@@ -4,12 +4,12 @@ import Suscripcion.Suscripcion;
 import Suscripcion.SuscripcionAnual;
 import Suscripcion.SuscripcionMensual;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Kiosko {
 
     HashMap<String,Cliente> clientes = new HashMap<String,Cliente>();
+
 
     public void AgregarCliente(String nombre, String direccion){
         Cliente nuevo_cliente = new Cliente(nombre,direccion);
