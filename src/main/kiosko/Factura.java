@@ -22,4 +22,8 @@ public class Factura {
             System.out.println(p.devolverPrecio());
         }
     }
+
+    public double calcular(){
+        return 0;
+    }
 }

@@ -13,16 +13,13 @@ public class Descuento {
     }
 
     public double aplicardescuento(SuscripcionAnual suscripcion) {
-        return this.calculardescuento(suscripcion.calcularcosto(),this.C_Anual);
+        return this.calculardescuento(suscripcion.calcularCosto(),this.C_Anual);
     }
 
     public double aplicardescuento(SuscripcionMensual suscripcion) {
-        return this.calculardescuento(suscripcion.calcularcosto(),this.C_Resto);
+        return this.calculardescuento(suscripcion.calcularCosto(),this.C_Resto);
     }
 
-    public double aplicardescuento(NoSuscripto suscripcion) {
-        return this.calculardescuento(suscripcion.calcularcosto(),this.C_Resto);
-    }
 
     public double aplicardescuento(Factura factura) {
 
