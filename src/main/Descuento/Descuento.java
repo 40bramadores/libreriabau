@@ -1,7 +1,6 @@
 package Descuento;
+import Suscripcion.*;
 
-import Suscripcion.SuscripcionAnual;
-import Suscripcion.SuscripcionMensual;
 import kiosko.Factura;
 
 public class Descuento {
