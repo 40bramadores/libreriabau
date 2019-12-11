@@ -1,5 +1,9 @@
 package kiosko;
 
+import Suscripcion.Suscripcion;
+import Suscripcion.SuscripcionAnual;
+import Suscripcion.SuscripcionMensual;
+
 import java.util.ArrayList;
 
 public class Kiosko {
@@ -19,6 +23,23 @@ public class Kiosko {
         }
     }
 
+    public void CalcularGastoMensual(){
 
+    }
 
+    public void CalcularGastoAnual(){
+
+    }
+
+    public void AgregarSuscricion(SuscripcionAnual suscripcion){
+
+    }
+
+    public void AgregarSuscricion(SuscripcionMensual suscripcion){
+
+    }
+
+    public void QuitarSuscripcion(Suscripcion suscripcion){
+
+    }
 }

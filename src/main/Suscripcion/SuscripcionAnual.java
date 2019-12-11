@@ -1,5 +1,7 @@
 package Suscripcion;
 
+import producto.Producto;
+
 import java.util.Calendar;
 
 public class SuscripcionAnual extends Suscripcion implements ICostoSuscripcion{

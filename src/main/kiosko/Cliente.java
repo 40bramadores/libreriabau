@@ -17,4 +17,14 @@ public class Cliente {
         this.nombre = nombre;
         this.direccion = direccion;
     }
+
+    public void Suscribirse(Suscripcion suscripcion){
+        suscripciones.add(suscripcion);
+    }
+
+    public void Desuscribirse(Suscripcion suscripcion){
+        if(suscripciones.contains(suscripcion)){
+            suscripciones.remove(suscripcion);
+        }
+    }
 }

@@ -1,5 +1,9 @@
 package Descuento;
 
+import Suscripcion.SuscripcionAnual;
+import Suscripcion.SuscripcionMensual;
+import kiosko.Factura;
+
 public class Descuento {
     private double C_Anual = 0.2;
     private double C_Resto = 0.05;
