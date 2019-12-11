@@ -1,7 +1,8 @@
 package Suscripcion;
 
+import producto.Producto;
+
 import java.util.Calendar;
-import java.util.Date;
 
 public abstract class Suscripcion {
 
@@ -9,16 +10,29 @@ public abstract class Suscripcion {
     protected Calendar _inicio;
     protected Calendar _fin;
     protected Producto _producto;
-    protected Integer _cantidadSemanal;
+    protected Integer _cantidadMensual;
 
-    public Suscripcion(Producto producto, Integer cantidadSemanal){
+    public Suscripcion(Producto producto, Integer cantidadMensual){
         this._producto = producto;
-        this._cantidadSemanal= cantidadSemanal;
+        this._cantidadMensual = cantidadMensual;
     }
 
 
     public abstract double calcularCosto();
 
+    //Getters
+
+    public Calendar getInicio() {
+        return _inicio;
+    }
+
+    public Calendar getFin() {
+        return _fin;
+    }
+
+    public Integer getCantidadSemanal() {
+        return _cantidadMensual;
+    }
 
 
 }
