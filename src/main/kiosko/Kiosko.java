@@ -1,23 +1,24 @@
 package kiosko;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Kiosko {
 
     ArrayList<Cliente> clientes = new ArrayList<Cliente>();
 
-    public void AgregarCliente(Cliente cliente){
-        clientes.add(cliente);
+    public void AgregarCliente(String nombre, String direccion){
+        Cliente nuevo_cliente = new Cliente(nombre,direccion);
+        clientes.add(nuevo_cliente);
     }
 
     public void RemoverCliente(String nombre){
-        for (Cliente c: cliente) {
+        for (Cliente c: clientes) {
             if(c.nombre == nombre){
                 clientes.remove(c);
             }
         }
     }
+
 
 
 }
