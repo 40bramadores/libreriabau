@@ -12,7 +12,7 @@ public class Kiosko {
     }
 
     public void RemoverCliente(String nombre){
-        for (Cliente c: cliente) {
+        for (Cliente c: clientes) {
             if(c.nombre == nombre){
                 clientes.remove(c);
             }

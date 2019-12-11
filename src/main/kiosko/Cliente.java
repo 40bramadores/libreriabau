@@ -1,5 +1,9 @@
 package kiosko;
 
+import Suscripcion.Suscripcion;
+
+import java.util.ArrayList;
+
 public class Cliente {
 
     String nombre;

@@ -4,9 +4,9 @@ public abstract class Producto {
 
     protected String nombre;
     protected String tipo;
-    protected Double precio;
+    protected double precio;
 
-    public Producto(String nombre, String tipo, Double precio) {
+    public Producto(String nombre, String tipo, double precio) {
         this.nombre = nombre;
         this.tipo = tipo;
         this.precio = precio;
@@ -28,7 +28,7 @@ public abstract class Producto {
         this.tipo = tipo;
     }
 
-    public void setPrecio(Double precio) {
+    public void setPrecio(double precio) {
         this.precio = precio;
     }
 

@@ -1,5 +1,7 @@
 package kiosko;
 
+import producto.Producto;
+
 import java.util.ArrayList;
 
 public class Factura {
@@ -10,8 +12,12 @@ public class Factura {
 
         // Devuelve la lista de producto
         for ( Producto p : productos){
-            System.out.println(p.nombre);
-            System.out.println(p.precio);
+            System.out.println(p.getNombre());
+            System.out.println(p.devolverPrecio());
         }
+    }
+
+    public double calcular(){
+        return 0;
     }
 }
