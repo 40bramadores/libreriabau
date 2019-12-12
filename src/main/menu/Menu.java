@@ -26,6 +26,9 @@ public class Menu {
         System.out.println("7- Listar productos");
         System.out.println("8- Crear producto");
         System.out.println("9- Eliminar producto");
+        System.out.println("10- Buscar producto");
+        System.out.println("11- Calcular gasto mensual");
+        System.out.println("12- Calcular gasto anual");
 
         while (lock != 0) {
             System.out.println("Seleccione una opcion:");
@@ -37,8 +40,7 @@ public class Menu {
                     break;
                 case 1:
                     while(lock2 != 0) {
-                        System.out.println("Crear clientes (S) salir (En nombre)");
-                        System.out.println("Escriba el nombre del cliente:");
+                        System.out.println("Escriba el nombre del cliente[(S) SALIR]:");
                         String nombre = myObj.next();
                         if( nombre.compareTo("S") == 0 || nombre.compareTo("s") == 0 ) {
                             System.out.println("Operacion cancelada");
@@ -54,8 +56,7 @@ public class Menu {
                     break;
                 case 2:
                     while(lock2 != 0) {
-                        System.out.println("Remover clientes (S) salir (En nombre)");
-                        System.out.println("Escriba el nombre del cliente:");
+                        System.out.println("Escriba el nombre del cliente [(S) SALIR]:");
                         String nombre = myObj.next();
                         if( nombre.compareTo("S") == 0 || nombre.compareTo("s") == 0 ) {
                             System.out.println("Operacion cancelada");
@@ -79,12 +80,17 @@ public class Menu {
                         String nombre = myObj.next();
                         while (lock2 != 0) {
                             ArrayList<Compra> compras = new ArrayList<Compra>();
-                            System.out.println("Crear compra (S) enviar (En producto)");
-                            System.out.println("Escriba el nombre del producto:");
+                            System.out.println("Escriba el nombre del producto [(S) ENVIAR]:");
                             String producto = myObj.next();
                             if (producto.compareTo("S") == 0 || producto.compareTo("s") == 0) {
-                                System.out.println("Operacion cancelada");
-                                lock2 = 0;
+                                if(compras.size() >= 1) {
+                                    kiosko.comprar(nombre, compras);
+                                    System.out.println("Compras enviadas");
+                                    lock2 = 0;
+                                } else {
+                                    System.out.println("Operacion cancelada");
+                                    lock2 = 0;
+                                }
                             } else {
                                 System.out.println("Escriba la Cantidad:");
                                 String cantidad = myObj.next();
@@ -92,9 +98,6 @@ public class Menu {
                                 Producto productobj = kiosko.buscarProducto(producto);
                                 Compra compra = new Compra(productobj, cantidadp);
                                 compras.add(compra);
-                                kiosko.comprar(nombre, compras);
-                                System.out.println("Compras enviadas");
-                                lock2 = 0;
                             }
                         }
                         lock2 = 1;
@@ -145,8 +148,7 @@ public class Menu {
                     break;
                 case 9:
                     while(lock2 != 0) {
-                        System.out.println("Remover Productos (S) salir (En nombre)");
-                        System.out.println("Escriba el nombre del producto:");
+                        System.out.println("Escriba el nombre del producto [(S) SALIR]:");
                         String nombre = myObj.next();
                         if( nombre.compareTo("S") == 0 || nombre.compareTo("s") == 0 ) {
                             System.out.println("Operacion cancelada");
@@ -159,8 +161,7 @@ public class Menu {
                     lock2 = 1;
                     break;
                 case 10:
-                        System.out.println("Buscar Productos (S) salir (En nombre)");
-                        System.out.println("Escriba el nombre del producto:");
+                        System.out.println("Escriba el nombre del producto [(S) SALIR]:");
                         String nombre = myObj.next();
                         if( nombre.compareTo("S") == 0 || nombre.compareTo("s") == 0 ) {
                             System.out.println("Operacion cancelada");
@@ -169,6 +170,34 @@ public class Menu {
                             System.out.println(kiosko.buscarProducto(nombre));
                         }
                     lock2 = 1;
+                    break;
+                case 11: //gasto mensual
+                    try {
+                        System.out.println("Escriba el nombre del cliente:");
+                        String nombre = myObj.next();
+                        System.out.println("Escriba el mes[1-12]:");
+                        String fecha = myObj.next();
+                        Integer fechap = Integer.parseInt(fecha);
+                        if(fechap <= 12 && fechap >= 1) {
+                            System.out.println("Lo gastado el mes" + fechap + "es: " + kiosko.calcularGastoAnual(nombre,fechap));
+                        } else {
+                            System.out.println("Mes invalido");
+                        }
+                    } finally {System.out.println("");}
+                    break;
+                case 12: //gasto anual
+                    try {
+                        System.out.println("Escriba el nombre del cliente:");
+                        String nombre = myObj.next();
+                        System.out.println("Escriba el año[1960--2019]:");
+                        String fecha = myObj.next();
+                        Integer fechap = Integer.parseInt(fecha);
+                        if(fechap <= 2019 && fechap >= 1960) {
+                            System.out.println("Lo gastado el año" + fechap + "es: " + kiosko.calcularGastoAnual(nombre,fechap));
+                        } else {
+                            System.out.println("Mes invalido");
+                        }
+                    } finally {System.out.println("");}
                     break;
             }
         }
