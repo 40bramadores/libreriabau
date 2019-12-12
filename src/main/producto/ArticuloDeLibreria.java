@@ -4,7 +4,7 @@ public class ArticuloDeLibreria extends Producto {
 
     private Iva iva;
 
-    public ArticuloDeLibreria(String nombre, String tipo, Double precio, Iva iva) {
+    public ArticuloDeLibreria(String nombre, String tipo, Double precio) {
         super(nombre, tipo, precio);
         this.iva = iva;
 
