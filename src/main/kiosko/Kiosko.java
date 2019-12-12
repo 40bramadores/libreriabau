@@ -9,6 +9,7 @@ import producto.Producto;
 import producto.ProductosPeriodicos;
 
 import java.lang.reflect.Array;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
@@ -30,12 +31,26 @@ public class Kiosko {
         }
     }
 
-    public void calcularGastoMensual(){
+    public Double calcularGastoMensual(String nombre, Integer mes){
+        if(clientes.containsKey(nombre)){
+            Cliente cliente = clientes.get(nombre);
 
+            LocalDate fecha = LocalDate.now();
+            fecha.withMonth(mes);
+            return cliente.cuenta.calcularGastoMensual(fecha);
+        }else
+            return 0.0;
     }
 
-    public void calcularGastoAnual(){
+    public Double calcularGastoAnual(String nombre, Integer año){
+        if(clientes.containsKey(nombre)){
+            Cliente cliente = clientes.get(nombre);
 
+            LocalDate fecha = LocalDate.now();
+            fecha.withYear(año);
+            return cliente.cuenta.calcularGastoMensual(fecha);
+        }else
+            return 0.0;
     }
 
     public void agregarProducto(String nombre, Integer tipo, double precio){
