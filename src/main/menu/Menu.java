@@ -87,13 +87,15 @@ public class Menu {
                             System.out.println("Escriba el nombre del producto:");
                             String producto = myObj.next();
                             if (producto.compareTo("S") == 0 || producto.compareTo("s") == 0) {
+                                System.out.println("Operacion cancelada");
+                                lock2 = 0;
+                            } else {
                                 System.out.println("Escriba la Cantidad:");
                                 String cantidad = myObj.next();
                                 int cantidadp = Integer.parseInt(cantidad);
                                 Producto productobj = kiosko.buscarProducto(producto);
                                 Compra compra = new Compra(productobj, cantidadp);
                                 compras.add(compra);
-                            } else {
                                 kiosko.comprar(nombre, compras);
                                 System.out.println("Compras enviadas");
                                 lock2 = 0;
@@ -104,7 +106,7 @@ public class Menu {
                     break;
                 case 6:
                     try {
-                        System.out.println("Listando pulpitos:");
+                        System.out.println("Listando Clientes:");
                         String[] clientes = kiosko.listarClientes();
                         for(int i=0; i < clientes.length; i++){
                             System.out.println(clientes[i]);
