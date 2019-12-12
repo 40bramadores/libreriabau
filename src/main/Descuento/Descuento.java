@@ -20,10 +20,4 @@ public class Descuento {
         return this.calculardescuento(suscripcion.calcularCosto(),this.C_Resto);
     }
 
-
-    public double aplicardescuento(Factura factura) {
-
-        return this.calculardescuento(factura.calcular(),this.C_Resto);
-    }
-
 }
