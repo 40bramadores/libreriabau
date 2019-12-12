@@ -80,10 +80,10 @@ public class Menu {
                     break;
                 case 5:
                     try {
+                        ArrayList<Compra> compras = new ArrayList<Compra>();
                         System.out.println("Escriba el nombe del cliente:");
                         String nombre = myObj.next();
                         while (lock2 != 0) {
-                            ArrayList<Compra> compras = new ArrayList<Compra>();
                             System.out.println("Escriba el nombre del producto [(S) ENVIAR]:");
                             String producto = myObj.next();
                             if (producto.compareTo("S") == 0 || producto.compareTo("s") == 0) {
@@ -165,15 +165,17 @@ public class Menu {
                     lock2 = 1;
                     break;
                 case 10:
+                    try {
                         System.out.println("Escriba el nombre del producto [(S) SALIR]:");
                         String nombre = myObj.next();
-                        if( nombre.compareTo("S") == 0 || nombre.compareTo("s") == 0 ) {
+                        if (nombre.compareTo("S") == 0 || nombre.compareTo("s") == 0) {
                             System.out.println("Operacion cancelada");
                         } else {
                             System.out.println("Producto:");
                             System.out.println(kiosko.buscarProducto(nombre));
                         }
-                    lock2 = 1;
+                        lock2 = 1;
+                    } finally {System.out.println("");}
                     break;
                 case 11: //gasto mensual
                     try {
