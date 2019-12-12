@@ -10,8 +10,7 @@ class ArticuloDeLibreriaTest {
 
     @Test
     public void CalculoPrecioConIvaTest (){
-        Iva MiIva = new Iva (21.0);
-        ArticuloDeLibreria producto = new ArticuloDeLibreria("Lapiz", "X", 100.0, MiIva);
+        ArticuloDeLibreria producto = new ArticuloDeLibreria("Lapiz", "X", 100.0);
 
         double montoEsperado = 121.0;
 

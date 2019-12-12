@@ -1,7 +1,9 @@
 package Descuento;
 
-import org.junit.Test;
+
 import Suscripcion.*;
+import org.junit.jupiter.api.DynamicTest;
+import org.junit.jupiter.api.Test;
 import producto.ProductosPeriodicos;
 
 import static org.junit.jupiter.api.Assertions.*;
