@@ -64,6 +64,10 @@ public class Kiosko {
        productos.remove(nombreDeProducto);
     }
 
+    public Cliente getCliente(String nombre){
+        return clientes.get(nombre);
+    }
+
     public void agregarSuscripcion(SuscripcionAnual suscripcion){
 
     }
