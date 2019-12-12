@@ -44,6 +44,10 @@ public class Factura {
         }
     }
 
+    public LocalDate getFecha() {
+        return fecha;
+    }
+
     public void agregarCompra (Compra MiCompra){
         this.compras.add(MiCompra);
     }
