@@ -209,7 +209,7 @@ public class Menu {
                         String fecha = myObj.next();
                         Integer fechap = Integer.parseInt(fecha);
                         if(fechap <= 12 && fechap >= 1) {
-                            System.out.println("Lo gastado el mes" + fechap + "es: " + kiosko.calcularGastoAnual(nombre,fechap));
+                            System.out.println("Lo gastado el mes" + fechap + "es: " + kiosko.calcularGastoMensual(nombre,fechap));
                         } else {
                             System.out.println("Mes invalido");
                         }
