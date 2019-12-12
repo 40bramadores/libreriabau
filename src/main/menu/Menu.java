@@ -73,7 +73,26 @@ public class Menu {
                     lock2 = 1;
                     break;
                 case 3:
-                    System.out.println("Agregar suscripcion");
+                    //public void agregarSuscripcion(String nombreCliente, String nombreProducto, Integer tipoSuscripcion, Integer cantidadMensual){
+                    try {
+                        System.out.println("Escriba el nombe del cliente:");
+                        String nombre = myObj.next();
+                        System.out.println("Escriba el nombe del producto:");
+                        String producto = myObj.next();
+                        System.out.println("Tipos de suscripcion:");
+                        System.out.println("1-Mensual");
+                        System.out.println("2-Anual");
+                        System.out.println("Escriba el tipo de suscripcion:");
+                        String tipo = myObj.next();
+                        Integer tipop = Integer.parseInt(tipo);
+                        System.out.println("Escriba la cantidad mensual:");
+                        String cantidad = myObj.next();
+                        Integer cantidadp = Integer.parseInt(cantidad);
+                        kiosko.agregarSuscripcion(nombre,producto,tipop,cantidadp);
+                        System.out.println("Suscripion creada");
+                    } finally {
+                        System.out.println("");
+                    }
                     break;
                 case 4:
                     System.out.println("Quitar suscripcion");
