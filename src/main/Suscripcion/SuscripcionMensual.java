@@ -1,5 +1,7 @@
 package Suscripcion;
 
+import producto.Producto;
+
 import java.util.Calendar;
 
 public class SuscripcionMensual extends Suscripcion implements ICostoSuscripcion {
@@ -14,7 +16,7 @@ public class SuscripcionMensual extends Suscripcion implements ICostoSuscripcion
 
     public double calcularCosto() {
         double costoDeProducto = _producto.devolverPrecio();
-        double costoMensual = 4*_cantidadSemanal*costoDeProducto;
+        double costoMensual = 4*_cantidadMensual*costoDeProducto;
         return costoMensual;
 
     }
