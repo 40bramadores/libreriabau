@@ -43,7 +43,7 @@ public class Menu {
                         if( nombre.compareTo("S") == 0 || nombre.compareTo("s") == 0 ) {
                             System.out.println("Escriba la direccion del cliente: \n");
                             String direccion = myObj.nextLine();
-                            kiosko.aregarCliente(nombre,direccion);
+                            kiosko.agregarCliente(nombre,direccion);
                             System.out.println("Cliente creado \n");
                         } else {
                             System.out.println("Operacion cancelada \n");
