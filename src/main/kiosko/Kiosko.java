@@ -47,14 +47,21 @@ public class Kiosko {
                 break;
 
             case 3:
-                producto = new ProductosPeriodicos(nombre, "Productos prediodicos", precio);
+                producto = new ProductosPeriodicos(nombre, "Productos periodicos", precio);
                 break;
 
         }
 
         productos.put(producto.nombre, producto);
-        
+    }
 
+    public Producto buscarProducto(String nombreDeProducto){
+        Producto producto = productos.get(nombreDeProducto);
+        return producto;
+    }
+
+    public void borrarProducto(String nombreDeProducto){
+       productos.remove(nombreDeProducto);
     }
 
     public void agregarSuscripcion(SuscripcionAnual suscripcion){
@@ -69,21 +76,21 @@ public class Kiosko {
 
     }
 
-    public void comprar(String nombre, ArrayList<Compra> _carrito){
-    boolean clienteAntiguo;
-    Cliente cliente;
+    public void comprar(String nombre, ArrayList<Compra> carrito){
+        boolean clienteAntiguo;
+        Cliente cliente;
 
-    clienteAntiguo = clientes.containsKey(nombre);
+        clienteAntiguo = clientes.containsKey(nombre);
 
-    if(clienteAntiguo){
-        cliente = clientes.get(nombre)
-    } else {cliente = new Cliente(nombre, "")}
-
-
+        if(clienteAntiguo){
+            cliente = clientes.get(nombre)
+        } else {cliente = new Cliente(nombre, "")};
 
 
-    Factura factura= new Factura(_carrito)
+        Factura factura= new Factura(carrito, clienteAntiguo);
+        factura.calcularTotal();
 
+        cliente.comprar(factura);
 
     }
 }
