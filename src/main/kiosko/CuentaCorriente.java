@@ -1,5 +1,6 @@
 package kiosko;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class CuentaCorriente {
@@ -10,11 +11,27 @@ public class CuentaCorriente {
         facturas.add(factura);
     }
 
-    public Double calcularGastoMensual(){
-        //getMontoTotal();
+    public Double calcularGastoMensual(LocalDate mes){
+
+        Double monto_mensual = 0.0;
+        for(Factura factura : facturas){
+
+            if( mes.getMonth() == factura.fecha.getMonth()
+            &&  mes.getYear() == factura.fecha.getYear()){
+                monto_mensual += factura.getMontoTotal();
+            }
+        }
+        return monto_mensual;
     }
 
-    public Double calcularGastoAnual(){
+    public Double calcularGastoAnual(LocalDate anual){
+        Double monto_anual = 0.0;
+        for(Factura factura : facturas){
 
+            if( anual.getYear() == factura.fecha.getYear()){
+                monto_anual += factura.getMontoTotal();
+            }
+        }
+        return monto_anual;
     }
 }
