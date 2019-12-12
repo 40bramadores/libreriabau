@@ -101,16 +101,39 @@ public class Kiosko {
         return clientes.get(nombre);
     }
 
-    public void agregarSuscripcion(SuscripcionAnual suscripcion){
+    public void agregarSuscripcion(String nombreCliente, String nombreProducto, Integer tipoSuscripcion, Integer cantidadMensual){
+        Cliente cliente = getCliente(nombreCliente);
+        Producto producto = buscarProducto(nombreProducto);
+        Suscripcion suscripcion;
+
+        if(producto.getTipo() != "Productos periodicos") {
+           return;
+        }
+
+        switch (tipoSuscripcion){
+            case 2:
+                suscripcion = new SuscripcionAnual(producto, cantidadMensual );
+                break;
+
+            case 1:
+                suscripcion  = new SuscripcionMensual(producto, cantidadMensual);
+                break;
+
+            default:
+                System.out.println("No logi, no sabes poner bien una opcion? " +
+                        "Gabi did it");
+                return;
+        }
+
+
+        cliente.suscribirse(suscripcion);
 
     }
 
-    public void agregarSuscripcion(SuscripcionMensual suscripcion){
 
-    }
-
-    public void quitarSuscripcion(Suscripcion suscripcion){
-
+    public void quitarSuscripcion(String nombreCliente, String nombreProducto){
+        Cliente cliente = getCliente(nombreCliente);
+        cliente.desuscribirse(nombreProducto);
     }
 
     public void comprar(String nombre, ArrayList<Compra> carrito){

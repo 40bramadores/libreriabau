@@ -22,6 +22,11 @@ public abstract class Suscripcion {
 
     //Getters
 
+
+    public Producto getProducto() {
+        return _producto;
+    }
+
     public Calendar getInicio() {
         return _inicio;
     }

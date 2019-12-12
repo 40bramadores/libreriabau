@@ -3,6 +3,7 @@ package kiosko;
 import Suscripcion.Suscripcion;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Cliente {
 
@@ -11,7 +12,7 @@ public class Cliente {
 
     CuentaCorriente cuenta;
 
-    ArrayList<Suscripcion> suscripciones = new ArrayList<Suscripcion>();
+    HashMap<String, Suscripcion> suscripciones = new HashMap<String, Suscripcion>();
 
     public Cliente(String nombre, String direccion){
         this.nombre = nombre;
@@ -20,12 +21,16 @@ public class Cliente {
     }
 
     public void suscribirse(Suscripcion suscripcion){
-        suscripciones.add(suscripcion);
+        String nombreProducto= suscripcion.getProducto().getNombre();
+        suscripciones.put(nombreProducto,suscripcion);
     }
 
-    public void desuscribirse(Suscripcion suscripcion){
-        if(suscripciones.contains(suscripcion)){
-            suscripciones.remove(suscripcion);
+    public void desuscribirse(String nombreProducto){
+        if(suscripciones.containsKey(nombreProducto)){
+            suscripciones.remove(nombreProducto);
+        } else{
+            System.out.println("No existe la suscripcion");
+            return;
         }
     }
 
