@@ -100,7 +100,7 @@ public class Menu {
                     break;
                 case 6:
                     try {
-                        System.out.println("Listndo clientes:");
+                        System.out.println("Listando pulpitos:");
                         String[] clientes = kiosko.listarClientes();
                         for(int i=0; i < clientes.length; i++){
                             System.out.println(clientes[i]);
@@ -109,7 +109,7 @@ public class Menu {
                     break;
                 case 7:
                     try {
-                        System.out.println("Listndo clientes:");
+                        System.out.println("Listando clientes:");
                         String[] productos = kiosko.listarProductos();
                         for(int i=0; i < productos.length; i++){
                             System.out.println(productos[i]);
