@@ -95,12 +95,14 @@ public class Menu {
                     }
                     break;
                 case 4:
-                    System.out.println("Escriba el nombe del cliente:");
-                    String nombre = myObj.next();
-                    System.out.println("Escriba el nombe del producto:");
-                    String producto = myObj.next();
-                    kiosko.quitarSuscripcion(nombre,producto);
-                    System.out.println("Suscripcion quitada");
+                    try {
+                        System.out.println("Escriba el nombe del cliente:");
+                        String nombre = myObj.next();
+                        System.out.println("Escriba el nombe del producto:");
+                        String producto = myObj.next();
+                        kiosko.quitarSuscripcion(nombre, producto);
+                        System.out.println("Suscripcion quitada");
+                    } finally {System.out.println();}
                     break;
                 case 5:
                     try {
