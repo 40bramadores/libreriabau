@@ -15,17 +15,17 @@ public class Menu {
         int menu=0;
 
         Scanner myObj = new Scanner(System.in);
-        System.out.println("Sistema de kiosko \n");
-        System.out.println("Opciones disponibles \n\n");
-        System.out.println("1- Crear Clientes \n");
-        System.out.println("2- Borrar Clientes \n");
-        System.out.println("3- Agregar suscripcion \n");
-        System.out.println("4- Quitar suscripcion \n");
-        System.out.println("5- Crear compra \n");
-        System.out.println("6- Listar clientes \n");
-        System.out.println("7- Listar productos \n");
-        System.out.println("8- Crear producto \n");
-        System.out.println("9- Eliminar producto \n");
+        System.out.println("Sistema de kiosko");
+        System.out.println("Opciones disponibles");
+        System.out.println("1- Crear Clientes");
+        System.out.println("2- Borrar Clientes");
+        System.out.println("3- Agregar suscripcion");
+        System.out.println("4- Quitar suscripcion");
+        System.out.println("5- Crear compra");
+        System.out.println("6- Listar clientes");
+        System.out.println("7- Listar productos");
+        System.out.println("8- Crear producto");
+        System.out.println("9- Eliminar producto");
 
         while (lock != 0) {
             System.out.println("Seleccione una opcion:");
@@ -37,32 +37,32 @@ public class Menu {
                     break;
                 case 1:
                     while(lock2 != 0) {
-                        System.out.println("Crear clientes (S) salir (En nombre)\n");
-                        System.out.println("Escriba el nombre del cliente: \n");
-                        String nombre = myObj.nextLine();
+                        System.out.println("Crear clientes (S) salir (En nombre)");
+                        System.out.println("Escriba el nombre del cliente:");
+                        String nombre = myObj.next();
                         if( nombre.compareTo("S") == 0 || nombre.compareTo("s") == 0 ) {
-                            System.out.println("Operacion cancelada \n");
+                            System.out.println("Operacion cancelada");
                             lock2 = 0;
                         } else {
-                            System.out.println("Escriba la direccion del cliente: \n");
-                            String direccion = myObj.nextLine();
+                            System.out.println("Escriba la direccion del cliente:");
+                            String direccion = myObj.next();
                             kiosko.agregarCliente(nombre,direccion);
-                            System.out.println("Cliente creado \n");
+                            System.out.println("Cliente creado");
                         }
                     }
                     lock2 = 1;
                     break;
                 case 2:
                     while(lock2 != 0) {
-                        System.out.println("Remover clientes (S) salir (En nombre)\n");
-                        System.out.println("Escriba el nombre del cliente: \n");
-                        String nombre = myObj.nextLine();
+                        System.out.println("Remover clientes (S) salir (En nombre)");
+                        System.out.println("Escriba el nombre del cliente:");
+                        String nombre = myObj.next();
                         if( nombre.compareTo("S") == 0 || nombre.compareTo("s") == 0 ) {
-                            System.out.println("Operacion cancelada \n");
+                            System.out.println("Operacion cancelada");
                             lock2 = 0;
                         } else {
                             kiosko.removerCliente(nombre);
-                            System.out.println("Cliente eliminado \n");
+                            System.out.println("Cliente eliminado");
                         }
                     }
                     lock2 = 1;
@@ -75,77 +75,97 @@ public class Menu {
                     break;
                 case 5:
                     try {
-                        System.out.println("Escriba el nombe del cliente: \n");
-                        String nombre = myObj.nextLine();
+                        System.out.println("Escriba el nombe del cliente:");
+                        String nombre = myObj.next();
                         while (lock2 != 0) {
                             ArrayList<Compra> compras = new ArrayList<Compra>();
-                            System.out.println("Crear compra (S) enviar (En producto)\n");
-                            System.out.println("Escriba el nombre del producto: \n");
-                            String producto = myObj.nextLine();
+                            System.out.println("Crear compra (S) enviar (En producto)");
+                            System.out.println("Escriba el nombre del producto:");
+                            String producto = myObj.next();
                             if (producto.compareTo("S") == 0 || producto.compareTo("s") == 0) {
-                                kiosko.comprar(nombre, compras);
-                                System.out.println("Compras enviadas \n");
-                                lock2 = 0;
-                            } else {
-                                System.out.println("Escriba la Cantidad: \n");
-                                int cantidad = myObj.nextInt();
+                                System.out.println("Escriba la Cantidad:");
+                                String cantidad = myObj.next();
+                                int cantidadp = Integer.parseInt(cantidad);
                                 Producto productobj = kiosko.buscarProducto(producto);
-                                Compra compra = new Compra(productobj, cantidad);
+                                Compra compra = new Compra(productobj, cantidadp);
                                 compras.add(compra);
+                            } else {
+                                kiosko.comprar(nombre, compras);
+                                System.out.println("Compras enviadas");
+                                lock2 = 0;
                             }
                         }
                         lock2 = 1;
                     } finally {System.out.println("nose");}
                     break;
                 case 6:
-                    System.out.println("Listndo clientes: \n");
-                    //kiosko.listarClientes(this);
+                    try {
+                        System.out.println("Listndo clientes:");
+                        String[] clientes = kiosko.listarClientes();
+                        for(int i=0; i < clientes.length; i++){
+                            System.out.println(clientes[i]);
+                        }
+                    } finally {System.out.println("");}
                     break;
                 case 7:
-                    System.out.println("Listando productos: \n");
-                    //kiosko.listarProductos(this);
+                    try {
+                        System.out.println("Listndo clientes:");
+                        String[] productos = kiosko.listarProductos();
+                        for(int i=0; i < productos.length; i++){
+                            System.out.println(productos[i]);
+                        }
+                    } finally {System.out.println("");}
                     break;
                 case 8:
-                    while(lock2 != 0) {
-                        System.out.println("Agregar Productos (S) salir (En nombre)\n");
-                        System.out.println("Escriba el nombre del producto: \n");
-                        String nombre = myObj.nextLine();
-                        System.out.println("Tipos de producto: \n");
-                        System.out.println("1- Libro \n");
-                        System.out.println("2- Articulo de libreria\n");
-                        System.out.println("3- Producto periodico\n");
-                        System.out.println("Escriba el tipo del producto: \n");
-                        Integer tipo = myObj.nextInt();
-                        System.out.println("Escriba el precio del producto: \n");
-                        double precio = myObj.nextDouble();
-                        if(tipo == 1 || tipo == 2 || tipo == 3) {
-                            if( nombre.compareTo("S") == 0 || nombre.compareTo("s") == 0 ) {
-                                System.out.println("Operacion cancelada \n");
-                                lock2 = 0;
-                            } else {
-                                System.out.println("Producto agregado \n");
-                                kiosko.agregarProducto(nombre,tipo,precio);
-                            }
+                    try {
+                        System.out.println("Escriba el nombre del producto:");
+                        String nombre = myObj.next();
+                        System.out.println("Tipos de producto:");
+                        System.out.println("1- Libro");
+                        System.out.println("2- Articulo de libreria");
+                        System.out.println("3- Producto periodico");
+                        System.out.println("Escriba el tipo del producto:");
+                        String tipo = myObj.next();
+                        Integer tipop = Integer.parseInt(tipo);
+                        if (tipop == 1 || tipop == 2 || tipop == 3) {
+                            System.out.println("Escriba el precio del producto:");
+                            String precio = myObj.next();
+                            double preciop = Double.parseDouble(precio);
+                            System.out.println("Producto agregado");
+                            kiosko.agregarProducto(nombre, tipop, preciop);
                         } else {
-                            System.out.println("Operacion cancelada tipo de producto invalido\n");
-                            lock2 = 0;
+                            System.out.println("Tipo de producto invalido");
                         }
+                    } finally {
+                        System.out.println("Nose");
                     }
                     lock2 = 1;
                     break;
                 case 9:
                     while(lock2 != 0) {
-                        System.out.println("Remover Productos (S) salir (En nombre)\n");
-                        System.out.println("Escriba el nombre del producto: \n");
-                        String nombre = myObj.nextLine();
+                        System.out.println("Remover Productos (S) salir (En nombre)");
+                        System.out.println("Escriba el nombre del producto:");
+                        String nombre = myObj.next();
                         if( nombre.compareTo("S") == 0 || nombre.compareTo("s") == 0 ) {
-                            System.out.println("Operacion cancelada \n");
+                            System.out.println("Operacion cancelada");
                             lock2 = 0;
                         } else {
-                            System.out.println("Producto borrado \n");
+                            System.out.println("Producto eliminado");
                             kiosko.borrarProducto(nombre);
                         }
                     }
+                    lock2 = 1;
+                    break;
+                case 10:
+                        System.out.println("Buscar Productos (S) salir (En nombre)");
+                        System.out.println("Escriba el nombre del producto:");
+                        String nombre = myObj.next();
+                        if( nombre.compareTo("S") == 0 || nombre.compareTo("s") == 0 ) {
+                            System.out.println("Operacion cancelada");
+                        } else {
+                            System.out.println("Producto:");
+                            System.out.println(kiosko.buscarProducto(nombre));
+                        }
                     lock2 = 1;
                     break;
             }
