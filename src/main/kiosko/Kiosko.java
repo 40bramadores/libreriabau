@@ -86,6 +86,18 @@ public class Kiosko {
         return clientes.get(nombre);
     }
 
+    public void agregarSuscripcion(String nombreCliente, String nombreProducto, Integer tipoSuscripcion){
+        Cliente cliente = getCliente(nombreCliente);
+        Producto producto = buscarProducto(nombreProducto);
+
+        if(producto.getTipo() != "Productos periodicos") {
+           return;
+        }
+
+        agregarSuscripcion(producto);
+
+    }
+
     public void agregarSuscripcion(SuscripcionAnual suscripcion){
 
     }
