@@ -8,10 +8,13 @@ import producto.Libro;
 import producto.Producto;
 import producto.ProductosPeriodicos;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Set;
 
 public class Kiosko {
+
     HashMap<String,Producto> productos = new HashMap<String,Producto>();
     HashMap<String,Cliente> clientes = new HashMap<String,Cliente>();
     private ArrayList<Compra> _carrito = new ArrayList<Compra>();
@@ -62,6 +65,18 @@ public class Kiosko {
     }
 
     public Producto buscarProducto(String nombreDeProducto){ return productos.get(nombreDeProducto); }
+
+    public String[] listarProductos(){
+        Set<String> nombreProductos = productos.keySet();
+        String[] arr = nombreProductos.toArray(new String[nombreProductos.size()]);
+        return arr;
+    }
+
+    public String[] listarClientes(){
+        Set<String> nombreClientes = clientes.keySet();
+        String[] arr = nombreClientes.toArray(new String[nombreClientes.size()]);
+        return arr;
+    }
 
     public void borrarProducto(String nombreDeProducto){
        productos.remove(nombreDeProducto);
