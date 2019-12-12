@@ -16,15 +16,20 @@ public class Cliente {
     public Cliente(String nombre, String direccion){
         this.nombre = nombre;
         this.direccion = direccion;
+        this.cuenta = new CuentaCorriente();
     }
 
-    public void Suscribirse(Suscripcion suscripcion){
+    public void suscribirse(Suscripcion suscripcion){
         suscripciones.add(suscripcion);
     }
 
-    public void Desuscribirse(Suscripcion suscripcion){
+    public void desuscribirse(Suscripcion suscripcion){
         if(suscripciones.contains(suscripcion)){
             suscripciones.remove(suscripcion);
         }
+    }
+
+    public void comprar(Factura factura){
+        cuenta.agregarFactura(factura);
     }
 }
