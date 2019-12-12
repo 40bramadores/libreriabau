@@ -12,7 +12,7 @@ public class Menu {
     public Menu(Kiosko kiosko) {
         int lock=1;
         int lock2=1;
-        int menu=0;
+        int menu;
 
         Scanner myObj = new Scanner(System.in);
         System.out.println("Sistema de kiosko");
@@ -95,11 +95,16 @@ public class Menu {
                     }
                     break;
                 case 4:
-                    System.out.println("Quitar suscripcion");
+                    System.out.println("Escriba el nombe del cliente:");
+                    String nombre = myObj.next();
+                    System.out.println("Escriba el nombe del producto:");
+                    String producto = myObj.next();
+                    kiosko.quitarSuscripcion(nombre,producto);
+                    System.out.println("Suscripcion quitada");
                     break;
                 case 5:
                     try {
-                        ArrayList<Compra> compras = new ArrayList<Compra>();
+                        ArrayList<Compra> compras = new ArrayList<>();
                         System.out.println("Escriba el nombe del cliente:");
                         String nombre = myObj.next();
                         while (lock2 != 0) {
@@ -130,8 +135,8 @@ public class Menu {
                     try {
                         System.out.println("Listando Clientes:");
                         String[] clientes = kiosko.listarClientes();
-                        for(int i=0; i < clientes.length; i++){
-                            System.out.println(clientes[i]);
+                        for (String cliente : clientes) {
+                            System.out.println(cliente);
                         }
                     } finally {System.out.println("");}
                     break;
@@ -139,8 +144,8 @@ public class Menu {
                     try {
                         System.out.println("Listando clientes:");
                         String[] productos = kiosko.listarProductos();
-                        for(int i=0; i < productos.length; i++){
-                            System.out.println(productos[i]);
+                        for (String producto : productos) {
+                            System.out.println(producto);
                         }
                     } finally {System.out.println("");}
                     break;
