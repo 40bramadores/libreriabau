@@ -8,7 +8,7 @@ public class ArticuloDeLibreria extends Producto {
     }
 
     public double devolverPrecio(){
-        double totalConIva = precio + precio * (Iva.porcentaje / 100);
+        double totalConIva = precio + (precio * (Iva.porcentaje / 100));
         return totalConIva;
 
     }
