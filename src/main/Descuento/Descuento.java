@@ -1,6 +1,6 @@
 package Descuento;
-import Suscripcion.*;
 
+import Suscripcion.SuscripcionAnual;
 import kiosko.Factura;
 
 public class Descuento {
@@ -15,8 +15,8 @@ public class Descuento {
         return this.calculardescuento(suscripcion.calcularCosto(),this.C_Anual);
     }
 
-    public double aplicardescuento(SuscripcionMensual suscripcion) {
-        return this.calculardescuento(suscripcion.calcularCosto(),this.C_Resto);
+    public double aplicardescuento(Factura miFactura) {
+        return this.calculardescuento(miFactura.getMontoTotal(),this.C_Resto);
     }
 
 }

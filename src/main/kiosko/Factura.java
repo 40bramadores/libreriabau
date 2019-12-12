@@ -1,29 +1,55 @@
 package kiosko;
 
-import producto.Producto;
+import Descuento.Descuento;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Calendar;
+
 
 public class Factura {
 
-    Calendar mes;
-    ArrayList<Producto> productos = new ArrayList<Producto>();
+    private LocalDate fecha;
+    private ArrayList<Compra> compras = new ArrayList<Compra>();
+    private double montoTotal;
+    private boolean clienteAntiguo;
 
-    public Factura(){
 
+    public Factura(ArrayList<Compra> compras, boolean clienteAntiguo ){
+        this.compras = compras;
+        this.clienteAntiguo = clienteAntiguo;
+        this.montoTotal = 0;
+        this.fecha = LocalDate.now();
     }
 
     public void MostrarFactura(){
-
         // Devuelve la lista de producto
-        for ( Producto p : productos){
-            System.out.println(p.getNombre());
+        for (Compra p : compras){
+            System.out.println(p.getProducto());
             System.out.println(p.devolverPrecio());
         }
     }
 
-    public double calcular(){
-        return 0;
+    public double getMontoTotal() {
+        return montoTotal;
     }
+
+    public void calcularTotal() {
+        for (Compra p : compras){
+            this.montoTotal += p.devolverPrecio();
+        }
+
+        if (this.clienteAntiguo){
+            Descuento MiDescuento = new Descuento();
+            this.montoTotal = MiDescuento.aplicardescuento(this);
+        }
+    }
+
+    public void agregarCompra (Compra MiCompra){
+        this.compras.add(MiCompra);
+    }
+
+    public Factura cerrarFactura (){
+        return this;
+    }
+
 }
