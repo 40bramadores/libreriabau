@@ -28,9 +28,13 @@ public class Menu {
         System.out.println("9- Eliminar producto");
 
         while (lock != 0) {
+
             System.out.println("Seleccione una opcion:");
+
             menu = myObj.nextInt();
+
             switch(menu) {
+
                 default:
                     System.out.println("Elija una opcion de 1 a 8");
                     lock = 0;

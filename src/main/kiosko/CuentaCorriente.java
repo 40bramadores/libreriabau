@@ -16,8 +16,7 @@ public class CuentaCorriente {
         Double monto_mensual = 0.0;
         for(Factura factura : facturas){
 
-            if( mes.getMonth() == factura.getFecha().getMonth()
-            &&  mes.getYear() == factura.getFecha().getYear()){
+            if( mes.getMonth() == factura.getFecha().getMonth()){
                 monto_mensual += factura.getMontoTotal();
             }
         }
