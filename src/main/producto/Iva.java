@@ -2,8 +2,8 @@ package producto;
 
 public class Iva {
 
-    private Double porcentaje;
-
+    static Double porcentaje = 21.0;
+/*
     public Iva(Double porcentaje) {
         this.porcentaje = porcentaje;
     }
@@ -15,4 +15,6 @@ public class Iva {
     public void setPorcentaje(Double porcentaje) {
         this.porcentaje = porcentaje;
     }
+
+ */
 }
