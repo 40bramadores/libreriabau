@@ -16,7 +16,7 @@ public class Kiosko {
     HashMap<String,Cliente> clientes = new HashMap<String,Cliente>();
     private ArrayList<Compra> _carrito = new ArrayList<Compra>();
 
-    public void aregarCliente(String nombre, String direccion){
+    public void agregarCliente(String nombre, String direccion){
         Cliente nuevo_cliente = new Cliente(nombre,direccion);
         clientes.put(nuevo_cliente.nombre,nuevo_cliente);
     }
@@ -40,25 +40,28 @@ public class Kiosko {
         switch (tipo){
             case 1:
                 producto = new Libro(nombre, "Libro", precio);
+                productos.put(producto.getNombre(), producto);
                 break;
 
             case 2:
                 producto = new ArticuloDeLibreria(nombre, "Articulo de Libreria", precio);
+                productos.put(producto.getNombre(), producto);
                 break;
 
             case 3:
                 producto = new ProductosPeriodicos(nombre, "Productos periodicos", precio);
+                productos.put(producto.getNombre(), producto);
                 break;
+
+            default:
+                return;
 
         }
 
-        productos.put(producto.nombre, producto);
+
     }
 
-    public Producto buscarProducto(String nombreDeProducto){
-        Producto producto = productos.get(nombreDeProducto);
-        return producto;
-    }
+    public Producto buscarProducto(String nombreDeProducto){ return productos.get(nombreDeProducto); }
 
     public void borrarProducto(String nombreDeProducto){
        productos.remove(nombreDeProducto);
@@ -87,8 +90,8 @@ public class Kiosko {
         clienteAntiguo = clientes.containsKey(nombre);
 
         if(clienteAntiguo){
-            cliente = clientes.get(nombre)
-        } else {cliente = new Cliente(nombre, "")};
+            cliente = clientes.get(nombre);
+        } else {cliente = new Cliente(nombre, "");}
 
 
         Factura factura= new Factura(carrito, clienteAntiguo);
