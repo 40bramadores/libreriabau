@@ -41,13 +41,13 @@ public class Menu {
                         System.out.println("Escriba el nombre del cliente: \n");
                         String nombre = myObj.nextLine();
                         if( nombre.compareTo("S") == 0 || nombre.compareTo("s") == 0 ) {
+                            System.out.println("Operacion cancelada \n");
+                            lock2 = 0;
+                        } else {
                             System.out.println("Escriba la direccion del cliente: \n");
                             String direccion = myObj.nextLine();
                             kiosko.agregarCliente(nombre,direccion);
                             System.out.println("Cliente creado \n");
-                        } else {
-                            System.out.println("Operacion cancelada \n");
-                            lock2 = 0;
                         }
                     }
                     lock2 = 1;
@@ -58,11 +58,11 @@ public class Menu {
                         System.out.println("Escriba el nombre del cliente: \n");
                         String nombre = myObj.nextLine();
                         if( nombre.compareTo("S") == 0 || nombre.compareTo("s") == 0 ) {
-                            kiosko.removerCliente(nombre);
-                            System.out.println("Cliente eliminado \n");
-                        } else {
                             System.out.println("Operacion cancelada \n");
                             lock2 = 0;
+                        } else {
+                            kiosko.removerCliente(nombre);
+                            System.out.println("Cliente eliminado \n");
                         }
                     }
                     lock2 = 1;
@@ -83,15 +83,15 @@ public class Menu {
                             System.out.println("Escriba el nombre del producto: \n");
                             String producto = myObj.nextLine();
                             if (producto.compareTo("S") == 0 || producto.compareTo("s") == 0) {
+                                kiosko.comprar(nombre, compras);
+                                System.out.println("Compras enviadas \n");
+                                lock2 = 0;
+                            } else {
                                 System.out.println("Escriba la Cantidad: \n");
                                 int cantidad = myObj.nextInt();
                                 Producto productobj = kiosko.buscarProducto(producto);
                                 Compra compra = new Compra(productobj, cantidad);
                                 compras.add(compra);
-                            } else {
-                                kiosko.comprar(nombre, compras);
-                                System.out.println("Compras enviadas \n");
-                                lock2 = 0;
                             }
                         }
                         lock2 = 1;
@@ -120,11 +120,11 @@ public class Menu {
                         double precio = myObj.nextDouble();
                         if(tipo == 1 || tipo == 2 || tipo == 3) {
                             if( nombre.compareTo("S") == 0 || nombre.compareTo("s") == 0 ) {
-                                System.out.println("Producto agregado \n");
-                                kiosko.agregarProducto(nombre,tipo,precio);
-                            } else {
                                 System.out.println("Operacion cancelada \n");
                                 lock2 = 0;
+                            } else {
+                                System.out.println("Producto agregado \n");
+                                kiosko.agregarProducto(nombre,tipo,precio);
                             }
                         } else {
                             System.out.println("Operacion cancelada tipo de producto invalido\n");
@@ -139,10 +139,11 @@ public class Menu {
                         System.out.println("Escriba el nombre del producto: \n");
                         String nombre = myObj.nextLine();
                         if( nombre.compareTo("S") == 0 || nombre.compareTo("s") == 0 ) {
-                            kiosko.borrarProducto(nombre);
-                        } else {
                             System.out.println("Operacion cancelada \n");
                             lock2 = 0;
+                        } else {
+                            System.out.println("Producto borrado \n");
+                            kiosko.borrarProducto(nombre);
                         }
                     }
                     lock2 = 1;
